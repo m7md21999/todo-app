@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th= "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/main.css}" type="text/css"/>
+    <title>Todo App</title>
+</head>
+<body>
+<div class="contact-us">
+    <CENTER>
+    <h1>Mini Todo App</h1>
+    </CENTER>
+    <br>
+    <form method="post"
+          th:action="@{/todo/addTask}"
+          th:object="${createTask}">
+        <input id="description" placeholder="description" th:field="*{description}" type="text" required/>
+        <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date" required/>
+        <button type="submit">SAVE TASK</button>
+    </form>
+
+    <br>
+    <table class="tasks-table">
+
+        <thead>
+        <tr>
+            <th>TASK ID</th>
+            <th>DESCRIPTION</th>
+            <th>TARGET DATE</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="task: ${taskList}">
+            <td>
+                <a th:text="${task.id}">
+                </a>
+            </td>
+
+            <td th:text="${task.description}">description</td>
+            <td th:text="${task.date}">date</td>
+
+            <td>
+                <a class="abutton"
+                   th:href="@{'/todo/updateTask/{id}' (id=${task.id})}" th:text="UPDATE">UPDATE</a>
+            </td>
+            <td>
+                <a class="abutton"
+                   th:href="@{'/todo/deleteTask/{id}' (id=${task.id})}" th:text="DELETE">DELETE</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

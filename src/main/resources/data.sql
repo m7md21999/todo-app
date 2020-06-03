@@ -1,0 +1,1 @@
+Insert into task (id,date,description) VALUES(1,'2019-12-12','Test description');
