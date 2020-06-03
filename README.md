@@ -1,6 +1,6 @@
 # Todo Application
 
-- This is a project for SITE's capstone project.As a part of our training, we need to build a simple application using any programming languages and tools.
+- This is an application for SITE's capstone project.As a part of our training, we need to build a simple application using any programming languages and tools.
 
 - I built a simple Todo application. The system allows the user to enter details of the task she/he is planning to do, and the finish date of that task. To sum up, the system is built to perform all CRUD operations. REST services have been also implemented for this project.
 
