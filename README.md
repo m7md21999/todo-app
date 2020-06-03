@@ -27,8 +27,6 @@ So I would like to thank FreeFrontend.com for the great html/css template which 
 
 ![Picture2](https://user-images.githubusercontent.com/61372625/83655394-0b025a80-a5c7-11ea-998e-8320055395b0.png)
 
-![Picture3](https://user-images.githubusercontent.com/61372625/83655404-0e95e180-a5c7-11ea-8196-da600c3e6ce6.png)
-
 ---
 
 ## References 
