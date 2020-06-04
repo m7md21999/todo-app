@@ -15,8 +15,8 @@
     <form method="post"
           th:action="@{/todo/addTask}"
           th:object="${createTask}">
-        <input id="description" placeholder="description" th:field="*{description}" type="text" required/>
-        <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date" required/>
+        <input id="description" placeholder="description" th:field="*{description}" type="text" minlength="5" maxlength="200" required/>
+        <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date"  min="2019-12-12" required/>
         <button type="submit">SAVE TASK</button>
     </form>
 

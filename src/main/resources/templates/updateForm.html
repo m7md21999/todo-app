@@ -15,8 +15,8 @@
           th:object="${updateTask}">
 
         <input type="hidden" th:field="*{id}"  th:value="${updateTask.id}" id="id" />
-        <input id="description" placeholder="description" th:field="*{description}" th:value="${updateTask.description}" type="text" required/>
-        <input id ="date" th:field= "*{date}" placeholder="Finish Date" th:value="${updateTask.date}" type="date" required/>
+        <input id="description" placeholder="description" th:field="*{description}" th:value="${updateTask.description}" type="text" minlength="5" maxlength="200" required/>
+        <input id ="date" th:field= "*{date}" placeholder="Finish Date" th:value="${updateTask.date}" type="date" min="2019-12-12" required/>
         <button type="submit">SAVE TASK</button>
     </form>
     <br>
