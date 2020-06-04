@@ -4,7 +4,6 @@ import com.example.todoapp.dao.TaskDao;
 import com.example.todoapp.domain.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.List;
 
@@ -38,4 +37,5 @@ public class TaskServiceImpl implements TaskService {
     public void updateTask(int id, String description, Date date) {
         taskDao.updateTask(id,description,date);
     }
+
 }

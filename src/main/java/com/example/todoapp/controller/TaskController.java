@@ -19,16 +19,16 @@ public class TaskController {
     @PostMapping("/addTask")
     public String addTask(Task task) {
         taskService.addTask(task);
-        return "redirect:/todo/allTasksList";
+        return "redirect:/todo/home";
     }
 
     @GetMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable int id) {
         taskService.deleteTask(id);
-        return "redirect:/todo/allTasksList";
+        return "redirect:/todo/home";
     }
 
-    @GetMapping("/allTasksList")
+    @GetMapping("/home")
     public String findAllTasks(Model model) {
         List<Task> taskList = taskService.findAllTasks();
         model.addAttribute("taskList", taskList);
@@ -47,12 +47,12 @@ public class TaskController {
     @PostMapping("/saveUpdate")
     public String saveUpdate (Task task){
         taskService.updateTask(task.getId(),task.getDescription(),task.getDate());
-        return "redirect:/todo/allTasksList";
+        return "redirect:/todo/home";
     }
 
     @GetMapping("/backHome")
     public String backHome (){
-        return "redirect:/todo/allTasksList";
+        return "redirect:/todo/home";
     }
 
 }

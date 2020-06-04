@@ -10,6 +10,5 @@ public interface TaskService {
     void deleteTask(int id);
     List<Task> findAllTasks();
     Task findTaskById(int id);
-
     void updateTask(int id, String description, Date date);
-}
+    }

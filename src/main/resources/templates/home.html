@@ -16,7 +16,7 @@
           th:action="@{/todo/addTask}"
           th:object="${createTask}">
         <input id="description" placeholder="description" th:field="*{description}" type="text" minlength="5" maxlength="200" required/>
-        <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date"  min="2019-12-12" required/>
+        <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date"  min="2019-12-31" required/>
         <button type="submit">SAVE TASK</button>
     </form>
 
@@ -32,7 +32,6 @@
             <th>DELETE</th>
         </tr>
         </thead>
-
         <tbody>
         <tr th:each="task: ${taskList}">
             <td>
@@ -55,6 +54,13 @@
         </tbody>
 
     </table>
+    <b><small>Fun Fact : &#128515;</small></b>
+    <p>
+        <small>
+            The biggest lie I tell myself is:
+            <i><u>"I don't need to write that down, I'll remember it."</u></i> &#128522; &#128541;
+        </small>
+    </p>
 </div>
 </body>
 </html>
