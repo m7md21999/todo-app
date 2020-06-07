@@ -8,6 +8,9 @@
 - The application built to be light, friendly, and appealing to use.
 So I would like to thank FreeFrontend.com for the great html/css template which I used in this project and edited it. You can find thier website in the References section and explore their amazing templates.
 
+### Use Case Diagram 
+![usecasepic](https://user-images.githubusercontent.com/61372625/83962760-baca1780-a8a8-11ea-8966-f9600d5ef330.png)
+
 ---
 
 ## Technologies Used
