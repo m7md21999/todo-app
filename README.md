@@ -14,14 +14,15 @@ So I would like to thank FreeFrontend.com for the great html/css template which 
 ** To run the project:
 Run on maven and do **clean spring-boot:run** then go to http://localhost:8080/todo/home.
 
-### For REST
+#### REST
 All tasks : http://localhost:8080/api/todo/tasksList
 Get task : http://localhost:8080/api/todo/task/1
 **Note Task with ID 1 has already created on the database once you run the project.**
-Add :http://localhost:8080/api/todo/add/{id}
-Update :http://localhost:8080/api/todo/update/{id}
-Delete :http://localhost:8080/api/todo/delete/{id}
+Add : /api/todo/add/{id}
+Update : /api/todo/update/{id}
+Delete : /api/todo/delete/{id}
 **You can test it on Postman**
+
 ---
 
 ## Technologies Used
