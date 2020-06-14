@@ -17,7 +17,25 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping("/addTask")
-    public String addTask(Task task) {
+    public String addTask(Task task, Model model) {
+
+        if (ifOnlyNumbers(task.getDescription())) {
+            List<Task> taskList = taskService.findAllTasks();
+            model.addAttribute("msg", "Description contains numbers only!");
+            model.addAttribute("taskList", taskList);
+            model.addAttribute("createTask", new Task());
+            return "home";
+        }
+
+        if(DescriptionIsLessThanThreeFiveLetters(task.getDescription()) ){
+            List<Task> taskList = taskService.findAllTasks();
+            model.addAttribute("msg","Description is less than 5 letters!");
+            model.addAttribute("taskList", taskList);
+            model.addAttribute("createTask",new Task());
+            return "home";
+        }
+
+
         taskService.addTask(task);
         return "redirect:/todo/home";
     }
@@ -31,6 +49,7 @@ public class TaskController {
     @GetMapping("/home")
     public String findAllTasks(Model model) {
         List<Task> taskList = taskService.findAllTasks();
+        model.addAttribute("msg","");
         model.addAttribute("taskList", taskList);
         model.addAttribute("createTask",new Task());
         return "home";
@@ -45,7 +64,24 @@ public class TaskController {
     }
 
     @PostMapping("/saveUpdate")
-    public String saveUpdate (Task task){
+    public String saveUpdate (Task task,Model model){
+
+        if (ifOnlyNumbers(task.getDescription())) {
+            List<Task> taskList = taskService.findAllTasks();
+            model.addAttribute("msg", "Description contains numbers only! Please, Try again!");
+            model.addAttribute("taskList", taskList);
+            model.addAttribute("createTask", new Task());
+            return "home";
+        }
+
+        if(DescriptionIsLessThanThreeFiveLetters(task.getDescription()) ){
+            List<Task> taskList = taskService.findAllTasks();
+            model.addAttribute("msg","Description is less than 5 letters! Please, Try again!");
+            model.addAttribute("taskList", taskList);
+            model.addAttribute("createTask",new Task());
+            return "home";
+        }
+
         taskService.updateTask(task.getId(),task.getDescription(),task.getDate());
         return "redirect:/todo/home";
     }
@@ -53,6 +89,29 @@ public class TaskController {
     @GetMapping("/backHome")
     public String backHome (){
         return "redirect:/todo/home";
+    }
+
+    public boolean DescriptionIsLessThanThreeFiveLetters(String Description){
+        String str = Description.trim();
+        System.out.println(str.length());
+        if (str.length() < 5)
+            return true;
+
+        return false;
+    }
+
+    public boolean ifOnlyNumbers(String Description){
+                boolean numeric = true;
+                try {
+                    Double num = Double.parseDouble(Description);
+                } catch (NumberFormatException e) {
+                    numeric = false;
+                }
+
+                if(numeric)
+                    return true;
+                else
+                    return false;
     }
 
 }

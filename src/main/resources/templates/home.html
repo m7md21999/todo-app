@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/main.css}" type="text/css"/>
     <title>Todo App</title>
+    <style>
+        .error {color: red;}
+    </style>
 </head>
 <body>
 <div class="contact-us">
@@ -12,10 +15,12 @@
     <h1>Mini Todo App</h1>
     </CENTER>
     <br>
-    <form method="post"
+    <form action="#"
+            method="post"
           th:action="@{/todo/addTask}"
           th:object="${createTask}">
-        <input id="description" placeholder="description" th:field="*{description}" type="text" minlength="5" maxlength="200" required/>
+        <label class="error" th:text="${msg}"></label>
+        <input id="description" placeholder="description" th:field="*{description}" type="text" minlength="5" maxlength="200" pattern="[^@#%&*${}()/><\][\\\x22,;|]+" title="@ # $ % ^ & * ( ) { } / \ NOT ALLOWED!" required />
         <input id="date" placeholder="Finish Date" th:field= "*{date}" type="date"  min="2019-12-31" required/>
         <button type="submit">SAVE TASK</button>
     </form>
