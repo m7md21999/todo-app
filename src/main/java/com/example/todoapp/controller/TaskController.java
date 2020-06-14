@@ -67,19 +67,15 @@ public class TaskController {
     public String saveUpdate (Task task,Model model){
 
         if (ifOnlyNumbers(task.getDescription())) {
-            List<Task> taskList = taskService.findAllTasks();
             model.addAttribute("msg", "Description contains numbers only! Please, Try again!");
-            model.addAttribute("taskList", taskList);
-            model.addAttribute("createTask", new Task());
-            return "home";
+            model.addAttribute("updateTask",task);
+            return "updateForm";
         }
 
         if(DescriptionIsLessThanThreeFiveLetters(task.getDescription()) ){
-            List<Task> taskList = taskService.findAllTasks();
             model.addAttribute("msg","Description is less than 5 letters! Please, Try again!");
-            model.addAttribute("taskList", taskList);
-            model.addAttribute("createTask",new Task());
-            return "home";
+            model.addAttribute("updateTask",task);
+            return "updateForm";
         }
 
         taskService.updateTask(task.getId(),task.getDescription(),task.getDate());

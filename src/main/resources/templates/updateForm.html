@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/main.css}" type="text/css"/>
     <title>Todo App</title>
+    <style>
+        .error {color: red;}
+    </style>
 </head>
 <body>
 <div class="contact-us">
@@ -15,6 +18,7 @@
           th:object="${updateTask}">
 
         <input type="hidden" th:field="*{id}"  th:value="${updateTask.id}" id="id" />
+        <label class="error" th:text="${msg}"></label>
         <input id="description" placeholder="description" th:field="*{description}" th:value="${updateTask.description}" type="text" minlength="5" maxlength="200" pattern="[^@#%&*${}()/><\][\\\x22,;|]+" title="@ # $ % ^ & * ( ) { } / \ NOT ALLOWED!" required/>
         <input id ="date" th:field= "*{date}" placeholder="Finish Date" th:value="${updateTask.date}" type="date" min="2019-12-31" required/>
         <button type="submit">SAVE TASK</button>
